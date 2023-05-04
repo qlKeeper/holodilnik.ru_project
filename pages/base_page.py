@@ -11,11 +11,14 @@ class BasePage:
     
     # Метод открытия нужного url
     def open(self, url: str):
+        '''Открывает нужный URL переданный первым аргументом'''
+
         self.driver.get(url)
     
     
     # Метод авторизации на сайте
     def authorization(self, timeout=10):
+        '''Проходит авторизацию на сайте'''
         
         LOGIN = 'howiv20780@syinxun.com'
         PASSWORD = '159000test'

@@ -7,5 +7,5 @@ def test_buy_product(driver):
     mp = MainPage(driver)
     mp.open(mp.MAIN_URL)
     mp.authorization()
-    mp.click_smartphone_btn()
+    mp.select_city()
     time.sleep(2)
