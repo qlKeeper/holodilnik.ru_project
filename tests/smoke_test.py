@@ -1,10 +1,11 @@
 import sys; sys.path.append('../holodilnik.ru_project')
-from pages.base_page import BasePage
+from pages.main_page import MainPage
 import time
 from selenium.webdriver.common.by import By
 
 def test_buy_product(driver):
-    bs = BasePage(driver)
-    bs.open(bs.BASE_URL)
-    bs.authorization()
+    mp = MainPage(driver)
+    mp.open(mp.MAIN_URL)
+    mp.authorization()
+    mp.click_smartphone_btn()
     time.sleep(2)
