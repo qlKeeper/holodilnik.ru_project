@@ -23,18 +23,25 @@ class BasePage:
         LOGIN = 'howiv20780@syinxun.com'
         PASSWORD = '159000test'
         
+        BTN_LOGIN = (By.XPATH, '//span[text()="Войти"]')
+        BTN_FORM_LINK = (By.XPATH, '//a[@class="form__link"]')
+        BTN_PASSWORD = (By.XPATH, "//button[text()='По паролю']")
+        LOGIN_FIELD = (By.XPATH, '//input[@id="phoneORemail_id"]')
+        PASSWORD_FIELD = (By.XPATH, '//input[@id="password_id"]')
+        FINAL_BTN = (By.XPATH, '//button[@id="btn_id"]')
+
         Wait(self.driver, timeout).until(EC.element_to_be_clickable(\
-            (By.XPATH, '//span[text()="Войти"]'))).click()
+            (BTN_LOGIN))).click()
         Wait(self.driver, timeout).until(EC.element_to_be_clickable(\
-            (By.XPATH, '//a[@class="form__link"]'))).click()
+            (BTN_FORM_LINK))).click()
         Wait(self.driver, timeout).until(EC.element_to_be_clickable(\
-            (By.XPATH, "//button[text()='По паролю']"))).click()
+            (BTN_PASSWORD))).click()
         Wait(self.driver, timeout).until(EC.element_to_be_clickable(\
-            (By.XPATH, '//input[@id="phoneORemail_id"]'))).send_keys(LOGIN)
+            (LOGIN_FIELD))).send_keys(LOGIN)
         Wait(self.driver, timeout).until(EC.element_to_be_clickable(\
-            (By.XPATH, '//input[@id="password_id"]'))).send_keys(PASSWORD)
+            (PASSWORD_FIELD))).send_keys(PASSWORD)
         Wait(self.driver, timeout).until(EC.element_to_be_clickable(\
-            (By.XPATH, '//button[@id="btn_id"]'))).click()
+            (FINAL_BTN))).click()
         time.sleep(1)
 
 
@@ -42,12 +49,13 @@ class BasePage:
         '''Открывает список городов, вторым аргументом можно передать название
         города. Если город есть в списке выбирает его, если нет то Москва'''
         
+        SELECT_CITY_BTN = (By.XPATH, '//span[@data-smoke="change-region__header"]')
         FIELD_INPUT_CITY = (By.XPATH, '//input[@class="field-control__input"]')
         CITY_SELECT_CONFIRMATION = (By.XPATH, f'//div[@data-default="{city}"]')
         DEFAULT_CITY = (By.XPATH, '//a[@onclick="return changeRegion(1, false);"]')
         
         Wait(self.driver, timeout).until(EC.visibility_of_element_located(\
-            (self.SELECT_CITY_BTN))).click()
+            (SELECT_CITY_BTN))).click()
 
         try:
             Wait(self.driver, timeout).until(EC.visibility_of_element_located(\

@@ -5,12 +5,11 @@ from selenium.webdriver.common.by import By
 
 class MainPage(BasePage):
 
-    # URLs
+    # URL
     MAIN_URL = 'https://www.holodilnik.ru/'
 
     # Locators
     SMARTPHONE_BTN = (By.XPATH, '//a[text()="Смартфоны"]')
-    SELECT_CITY_BTN = (By.XPATH, '//span[@data-smoke="change-region__header"]')
 
     # Actions
     def click_smartphone_btn(self, timeout=10):
