@@ -34,6 +34,9 @@ class HeaderPage(BasePage):
             (PASSWORD_FIELD))).send_keys(PASSWORD)
         Wait(self.driver, timeout).until(EC.element_to_be_clickable(\
             (FINAL_BTN))).click()
+        
+        BasePage.authorized = True
+        
         time.sleep(1)
 
 
@@ -73,8 +76,9 @@ class HeaderPage(BasePage):
         CART_BTN = (By.XPATH, '//span[contains(text(), "Корзина")]')
         
         self.driver.execute_script("window.scrollBy(0,-5000)")
+        time.sleep(1)
         
-        Wait(self.driver, timeout).until(EC.element_to_be_clickable(\
+        Wait(self.driver, timeout).until(EC.visibility_of_element_located(\
             (CART_BTN))).click()
         
     

@@ -6,6 +6,8 @@ import time
 
 class BasePage:
     
+    authorized = False # Была ли авторизация на сайте
+    
     def __init__(self, driver) -> None:
         self.driver = driver
     
