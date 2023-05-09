@@ -10,7 +10,7 @@ class CartPage(BasePage):
     CART_URL = 'https://www.holodilnik.ru/usercp/orders/'
     
     # Metods
-    def clear_cart(self, timeout=10):
+    def clear_cart(self, timeout=5):
 
         '''Метод очищает корзину от всех товаров'''
 
@@ -29,7 +29,7 @@ class CartPage(BasePage):
         except:
             return
     
-    def check_items_in_cart(self, items_info, timeout=10):
+    def check_items_in_cart(self, items_info, timeout=5):
 
         '''Метод проверяет соответсивие товаров в корзине, имена товаров, цену 
         и итоговую сумму. Первым аргументом принимает список выбранных товаров 
@@ -75,5 +75,3 @@ class CartPage(BasePage):
             assert int(total_price_in_cart.text.replace(' ', '')) == \
                 total_price_in_items, "Product total prices do not match"
 
-        if BasePage.authorized:
-            self.clear_cart()

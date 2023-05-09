@@ -12,7 +12,7 @@ class SmartphonesPage(BasePage):
     SMARTPHONES_URL = 'https://holodilnik.ru/smartphones_gadgets/smartphones/'
 
     
-    def add_to_cart(self, timeout=10) -> tuple:
+    def add_to_cart(self, timeout=5) -> tuple:
         
         '''Добавляет случайный смартфон в корзину из первой страницы, 
         возвращает его название и цену'''

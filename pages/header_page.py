@@ -6,7 +6,7 @@ import time
 
 class HeaderPage(BasePage):
 
-    def authorization(self, timeout=10):
+    def authorization(self, timeout=3):
         
         '''Проходит авторизацию на сайте'''
         
@@ -69,7 +69,7 @@ class HeaderPage(BasePage):
                 (DEFAULT_CITY))).click()
             
 
-    def go_to_cart(self, timeout=10):
+    def go_to_cart(self, timeout=5):
 
         '''Переход в корзину'''
 
@@ -83,7 +83,7 @@ class HeaderPage(BasePage):
             (CART_BTN))).click()
 
 
-    def click_smartphone_btn(self, timeout=10):
+    def click_smartphone_btn(self, timeout=5):
         
         '''Открыть страницу со смартфонами'''
         

@@ -6,7 +6,7 @@ from pages.cart_page import CartPage
 import time
 
 
-def test_buy_product(driver):
+def test_buy_product(driver, date_time):
     
     hp = HeaderPage(driver)
     mp = MainPage(driver)
@@ -14,6 +14,7 @@ def test_buy_product(driver):
     cp = CartPage(driver)
     
     mp.open_url(mp.MAIN_URL)
+
     hp.authorization()
     hp.go_to_cart()
     cp.clear_cart()
@@ -26,4 +27,5 @@ def test_buy_product(driver):
     
     hp.go_to_cart()
     cp.check_items_in_cart(items_info)
+    cp.take_screenshot()
     time.sleep(2)
