@@ -21,10 +21,9 @@ def test_buy_product(driver):
     hp.click_smartphone_btn()
     
     items_info = []
-    for i in range(3):
-        time.sleep(0.5)
+    for i in range(3): # Указываем количество товаров для добавления в корзину
         items_info.append(sp.add_to_cart())
     hp.go_to_cart()
 
     cp.check_items_in_cart(items_info)
-    time.sleep(3)
+    time.sleep(2)
