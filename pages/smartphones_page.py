@@ -3,7 +3,7 @@ from selenium.webdriver.support.wait import WebDriverWait as Wait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains as Action
-import random, time
+import random
 
 
 class SmartphonesPage(BasePage):
@@ -29,7 +29,6 @@ class SmartphonesPage(BasePage):
             .move_to_element(smartphones[random.randint(0, 23)])\
                 .click().perform()
         
-        time.sleep(0.5)
         phone_name :str = Wait(self.driver, timeout)\
             .until(EC.visibility_of_element_located((SMARTPHONE_NAME))).text
         phone_price :str = Wait(self.driver, timeout)\

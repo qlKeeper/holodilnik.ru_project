@@ -20,10 +20,10 @@ def test_buy_product(driver):
     hp.select_city()
     hp.click_smartphone_btn()
     
-    items_info = []
-    for i in range(3): # Указываем количество товаров для добавления в корзину
+    items_info = [] # Для хранения имени товара и цены
+    for i in range(2): # Указываем количество товаров для добавления в корзину
         items_info.append(sp.add_to_cart())
+    
     hp.go_to_cart()
-
     cp.check_items_in_cart(items_info)
     time.sleep(2)

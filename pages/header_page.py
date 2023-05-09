@@ -40,7 +40,7 @@ class HeaderPage(BasePage):
         time.sleep(1)
 
 
-    def select_city(self, city="Москва и область", timeout=10):
+    def select_city(self, city="Москва и область", timeout=2):
         
         '''Открывает список городов, вторым аргументом можно передать название
         города. Если город есть в списке выбирает его, если нет, то по умолчанию'''
