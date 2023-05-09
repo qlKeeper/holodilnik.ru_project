@@ -17,12 +17,16 @@ class CartPage(BasePage):
         CLEAR_BTN = (By.XPATH, '//span[text()="Очистить корзину"]')
         DELETE_BTN = (By.XPATH, \
                       '//button[@onclick="appBasket.basketClearProceed()"]')
+        EMPTY_CART = (By.XPATH, '//div[@class="basket__empty"]')
 
-        Wait(self.driver, timeout).until(EC.element_to_be_clickable(\
-            (CLEAR_BTN))).click()
-        Wait(self.driver, timeout).until(EC.element_to_be_clickable(\
-            (DELETE_BTN))).click()
-
+        if Wait(self.driver, timeout).until(EC.invisibility_of_element_located(\
+            (EMPTY_CART))):
+            Wait(self.driver, timeout).until(EC.visibility_of_element_located(\
+                (CLEAR_BTN))).click()
+            Wait(self.driver, timeout).until(EC.visibility_of_element_located(\
+                (DELETE_BTN))).click()
+        else:
+            return
     
     def check_items_in_cart(self, items_info, timeout=10):
 

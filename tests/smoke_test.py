@@ -8,20 +8,23 @@ import time
 
 def test_buy_product(driver):
     
-    mp = MainPage(driver)
-    mp.open_url(mp.MAIN_URL)
     hp = HeaderPage(driver)
+    mp = MainPage(driver)
+    sp = SmartphonesPage(driver)
+    cp = CartPage(driver)
+    
+    mp.open_url(mp.MAIN_URL)
     hp.authorization()
+    hp.go_to_cart()
+    cp.clear_cart()
     hp.select_city()
     hp.click_smartphone_btn()
     
-    sp = SmartphonesPage(driver)
     items_info = []
-    for i in range(2):
+    for i in range(3):
         time.sleep(0.5)
         items_info.append(sp.add_to_cart())
     hp.go_to_cart()
 
-    cp = CartPage(driver)
     cp.check_items_in_cart(items_info)
     time.sleep(3)

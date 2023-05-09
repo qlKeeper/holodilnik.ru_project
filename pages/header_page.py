@@ -76,12 +76,13 @@ class HeaderPage(BasePage):
         CART_BTN = (By.XPATH, '//span[contains(text(), "Корзина")]')
         
         self.driver.execute_script("window.scrollBy(0,-5000)")
-        time.sleep(1)
         
         Wait(self.driver, timeout).until(EC.visibility_of_element_located(\
+            (CART_BTN)))
+        Wait(self.driver, timeout).until(EC.element_to_be_clickable(\
             (CART_BTN))).click()
-        
-    
+
+
     def click_smartphone_btn(self, timeout=10):
         
         '''Открыть страницу со смартфонами'''
