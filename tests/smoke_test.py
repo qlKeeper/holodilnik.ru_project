@@ -6,9 +6,9 @@ from pages.cart_page import CartPage
 from pages.refrigerators_page import RefrigeratorsPage
 import time
 
+# Смоук тест покупки смартфонов
+def test_buy_smartphones(driver, date_time): 
 
-def test_buy_smartphones(driver, date_time):
-    
     hp = HeaderPage(driver)
     mp = MainPage(driver)
     sp = SmartphonesPage(driver)
@@ -31,8 +31,8 @@ def test_buy_smartphones(driver, date_time):
     cp.take_screenshot()
     time.sleep(2)
 
-
-def test_buy_refrigerators(driver, date_time):
+# Смоук тест покупки холодильников
+def test_buy_refrigerators(driver, date_time): 
     hp = HeaderPage(driver)
     mp = MainPage(driver)
     rp = RefrigeratorsPage(driver)

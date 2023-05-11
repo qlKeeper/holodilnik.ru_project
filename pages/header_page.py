@@ -1,5 +1,6 @@
 from pages.base_page import BasePage
 from selenium.webdriver.support.wait import WebDriverWait as Wait
+from selenium.webdriver.common.action_chains import ActionChains as Action
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import time
@@ -105,3 +106,23 @@ class HeaderPage(BasePage):
 
         Wait(self.driver, timeout).until(EC.visibility_of_element_located(\
             (REFRIGERATORS_BTN))).click()
+        
+
+    def click_computers_btn(self, timeout=5):
+
+        '''Метод открывет страницу с компьютерами'''
+
+        CATALOG_BTN = (By.XPATH, \
+                       '//span[@class="site-header__search-burger-button-text"]')
+        COMPUTER_LIST = (By.XPATH, \
+                         '//a[@href="//www.holodilnik.ru/digital_tech/"]')
+        SELECT_COMPUTER = (By.XPATH, '//a[@id="cm-1324"]')
+        Wait(self.driver, timeout).until(EC.visibility_of_element_located(\
+            (CATALOG_BTN))).click()
+        comp_list = Wait(self.driver, timeout)\
+            .until(EC.visibility_of_element_located((COMPUTER_LIST)))
+        
+        Action(self.driver).move_to_element(comp_list).perform()
+        Wait(self.driver, timeout).until(EC.visibility_of_element_located(\
+            (SELECT_COMPUTER))).click()
+
