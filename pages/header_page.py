@@ -15,7 +15,7 @@ class HeaderPage(BasePage):
         
         BTN_LOGIN = (By.XPATH, '//span[text()="Войти"]')
         BTN_FORM_LINK = (By.XPATH, '//a[@class="form__link"]')
-        BTN_PASSWORD = (By.XPATH, "//button[text()='По паролю']")
+        BTN_PASSWORD = (By.XPATH, '//button[@data-smoke="AuthByPasswdBtn"]')
         LOGIN_FIELD = (By.XPATH, '//input[@id="phoneORemail_id"]')
         PASSWORD_FIELD = (By.XPATH, '//input[@id="password_id"]')
         FINAL_BTN = (By.XPATH, '//button[@id="btn_id"]')
@@ -93,3 +93,15 @@ class HeaderPage(BasePage):
         
         Wait(self.driver, timeout).until(EC.visibility_of_element_located(\
             (SMARTPHONE_BTN))).click()
+        
+
+    def click_refrigerators_btn(self, timeout=5):
+
+        '''Метод открывает сраницу с холодильниками'''
+
+        REFRIGERATORS_BTN = (By.XPATH, '//div/a[text()="Холодильники"]')
+
+        self.driver.execute_script("window.scrollBy(0,-5000)")
+
+        Wait(self.driver, timeout).until(EC.visibility_of_element_located(\
+            (REFRIGERATORS_BTN))).click()
