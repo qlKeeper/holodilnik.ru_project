@@ -17,10 +17,10 @@ def test_buy_smartphones(driver, date_time):
     
     main_p.open_url(main_p.MAIN_URL)
 
-    # header_p.authorization()
-    # header_p.go_to_cart()
-    # cart_p.clear_cart()
-    # header_p.select_city()
+    header_p.authorization()
+    header_p.go_to_cart()
+    cart_p.clear_cart()
+    header_p.select_city()
     header_p.click_smartphone_btn()
     
     items_info = [] # Для хранения имени товара и цены
