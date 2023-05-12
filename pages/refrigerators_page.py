@@ -25,7 +25,7 @@ class RefrigeratorsPage(BasePage):
         refrigerators = Wait(self.driver, timeout)\
             .until(EC.visibility_of_all_elements_located((TO_CART_BTN)))
         Action(self.driver, timeout)\
-            .move_to_element(refrigerators[random.randint(0, 23)])\
+            .move_to_element(refrigerators[random.randint(0, len(refrigerators) - 1)])\
                 .click().perform()
         
         refrigerator_name :str = Wait(self.driver, timeout)\

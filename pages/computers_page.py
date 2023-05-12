@@ -25,7 +25,7 @@ class Computer_page(BasePage):
         computers = Wait(self.driver, timeout)\
             .until(EC.visibility_of_all_elements_located((TO_CART_BTN)))
         Action(self.driver, timeout)\
-            .move_to_element(computers[random.randint(0, 23)])\
+            .move_to_element(computers[random.randint(0, len(computers) - 1)])\
                 .click().perform()
         
         computer_name :str = Wait(self.driver, timeout)\

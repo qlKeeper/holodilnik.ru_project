@@ -29,7 +29,7 @@ class CartPage(BasePage):
         except:
             return
     
-    def check_items_in_cart(self, items_info, timeout=5):
+    def check_items_in_cart(self, items_info: list, timeout=5):
 
         '''Метод проверяет соответсивие товаров в корзине, имена товаров, цену 
         и итоговую сумму. Первым аргументом принимает список выбранных товаров 
