@@ -17,10 +17,10 @@ def test_buy_smartphones(driver, date_time):
     
     main_p.open_url(main_p.MAIN_URL)
 
-    header_p.authorization()
-    header_p.go_to_cart()
-    cart_p.clear_cart()
-    header_p.select_city()
+    # header_p.authorization()
+    # header_p.go_to_cart()
+    # cart_p.clear_cart()
+    # header_p.select_city()
     header_p.click_smartphone_btn()
     
     items_info = [] # Для хранения имени товара и цены
@@ -57,6 +57,7 @@ def test_buy_refrigerators(driver, date_time):
     cart_p.take_screenshot()
     time.sleep(2)
 
+# Смоук тест покупки компьютеров
 def test_buy_computers(driver, date_time):
     
     header_p = HeaderPage(driver)
