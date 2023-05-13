@@ -1,3 +1,4 @@
+from utilities.logger import Logger
 from pages.base_page import BasePage
 from selenium.webdriver.support.wait import WebDriverWait as Wait
 from selenium.webdriver.common.action_chains import ActionChains as Action
@@ -11,6 +12,7 @@ class HeaderPage(BasePage):
         
         '''Проходит авторизацию на сайте'''
         
+        Logger.add_start_step(method='authorization')
         LOGIN = 'howiv20780@syinxun.com'
         PASSWORD = '159000test'
         
@@ -37,7 +39,7 @@ class HeaderPage(BasePage):
             (FINAL_BTN))).click()
         
         BasePage.authorized = True
-        
+        Logger.add_end_step(url=self.driver.current_url, method='authorization')
         time.sleep(1)
 
 

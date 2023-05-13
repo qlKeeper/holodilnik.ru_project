@@ -1,0 +1,11 @@
+
+-----
+Test: tests/smoke_test.py::test_buy_smartphones (call)
+Start time: 2023-05-13 13:42:51.378737
+Start name method: authorization
+
+End time: 2023-05-13 13:42:54.052719
+End name method: authorization
+URL: https://www.holodilnik.ru/
+
+-----
